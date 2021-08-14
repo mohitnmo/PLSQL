@@ -1,0 +1,1 @@
+select sum(Retail_Price) from sale;
