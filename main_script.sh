@@ -9,12 +9,12 @@
 sql1="$(<"DDL/Stores.sql")"
 sql2="$(<"DDL/Sales.sql")"
 
-sql3="$(<"DML/storedata.sql")"
-sql4="$(<"DML/aggregation.sql")"
+sql3="$(<"PKS/package_specification.sql")"
+sql4="$(<"PKB/package_body.sql")"
+sql5="$(<"RUN_PROCEDURE.sql")"
 
-sql5="$(<"PKS/package_specification.sql")"
-sql6="$(<"PKB/package_body.sql")"
-sql7="$(<"RUN_PROCEDURE.sql")"
+sql6="$(<"DML/storedata.sql")"
+sql7="$(<"DML/aggregation.sql")"
 
 
 
