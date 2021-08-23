@@ -6,7 +6,7 @@
 #set +o allexport
 
 # Read sql query into a variable
-sql2="$(<"DDL/Stores.sql")"
+sql2="$(<"DDL/Sales.sql")"
 
  #If sqlplus is not available, then exit
 if ! command -v sqlplus > /dev/null; then 
