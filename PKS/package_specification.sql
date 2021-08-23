@@ -15,6 +15,7 @@ CREATE OR REPLACE PACKAGE FIRST_PACKAGE AS
       s_Tran_seq_no SALE.TXN_NUM%type, 
       s_Tran_Type  SALE.TXN_TYPE%type,  
       s_Retail_Price   SALE.RETAIL_PRICE%type); 
+	  
   
 END FIRST_PACKAGE; 
 /
