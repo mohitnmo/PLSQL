@@ -1,5 +1,5 @@
 -- WE HAVE FIVE STORE 
---SPOOL 'C:\Users\mosharm\Desktop\projectdata\storetable.txt'
+SPOOL 'C:\Users\mosharm\Desktop\projectdata\storetable.txt'
 set serveroutput ON
 declare
 n NUMBER;
@@ -17,4 +17,4 @@ dbms_output.put_line(' Store Table already exists');
 END IF;
 end;
 /
---SPOOL OFF;
+SPOOL OFF;

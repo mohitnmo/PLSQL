@@ -1,4 +1,4 @@
---SPOOL 'C:\Users\mosharm\Desktop\projectdata\saletable.txt'
+SPOOL 'C:\Users\mosharm\Desktop\projectdata\saletable.txt'
 
 SET serveroutput ON
 DECLARE
@@ -18,4 +18,4 @@ END IF;
 end;
 /
  
---SPOOL OFF;
+SPOOL OFF;
