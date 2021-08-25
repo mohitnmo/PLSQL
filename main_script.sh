@@ -5,19 +5,6 @@
 #source .env
 #set +o allexport
 
-# Read sql query into a variable
-sql1="$(<"DDL/Stores.sql")"
-sql2="$(<"DDL/Sales.sql")"
-
-sql3="$(<"PKS/package_specification.sql")"
-sql4="$(<"PKB/package_body.sql")"
-sql5="$(<"RUN_PROCEDURE.sql")"
-
-sql6="$(<"DML/storedata.sql")"
-sql7="$(<"DML/aggregation.sql")"
-
-
-
  #If sqlplus is not available, then exit
 if ! command -v sqlplus > /dev/null; then 
   echo "This script requires sqlplus to be installed and on your PATH ..."
@@ -25,24 +12,59 @@ if ! command -v sqlplus > /dev/null; then
 fi 
 
 # Connect to the database, run the query, then disconnect
-echo -e "SET PAGESIZE 0\n SET FEEDBACK OFF\n ${sql1}" | \
-sqlplus 'system/mohit123@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl1)))'
+sqlplus -s system/mohit123@//localhost:1522/orcl1 <<____EOF
+ 
+ @DDL/Stores.sql
+ set echo off
+ set heading off
+  
+____EOF
 
-echo -e "SET PAGESIZE 0\n SET FEEDBACK OFF\n ${sql2}" | \
-sqlplus 'system/mohit123@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl1)))'
+sqlplus -s system/mohit123@//localhost:1522/orcl1 <<____EOF
+ 
+ @DDL/Sales.sql
+ set echo off
+ set heading off
+ 
+____EOF
 
-echo -e "SET PAGESIZE 0\n SET FEEDBACK OFF\n ${sql3}" | \
-sqlplus 'system/mohit123@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl1)))'
+sqlplus -s system/mohit123@//localhost:1522/orcl1 <<____EOF
+ 
+ @PKS/package_specification.sql
+ set echo off
+ set heading off
+ 
+____EOF
 
-echo -e "SET PAGESIZE 0\n SET FEEDBACK OFF\n ${sql4}" | \
-sqlplus 'system/mohit123@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl1)))'
+sqlplus -s system/mohit123@//localhost:1522/orcl1 <<____EOF
+  
+ @PKB/package_body.sql
+ set echo off
+ set heading off
+  
+____EOF
 
-echo -e "SET PAGESIZE 0\n SET FEEDBACK OFF\n ${sql5}" | \
-sqlplus 'system/mohit123@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl1)))'
+sqlplus -s system/mohit123@//localhost:1522/orcl1 <<____EOF
+  
+ @RUN_PROCEDURE.sql
+ set echo off
+ set heading off
+  
+____EOF
 
-echo -e "SET PAGESIZE 0\n SET FEEDBACK OFF\n ${sql6}" | \
-sqlplus 'system/mohit123@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl1)))'
+sqlplus -s system/mohit123@//localhost:1522/orcl1 <<____EOF
+  
+ @DML/storedata.sql
+ set echo off
+ set heading off
+  
+____EOF
 
-echo -e "SET PAGESIZE 0\n SET FEEDBACK OFF\n ${sql7}" | \
-sqlplus 'system/mohit123@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=localhost)(PORT=1522)))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=orcl1)))'
+sqlplus -s system/mohit123@//localhost:1522/orcl1 <<____EOF
+  
+ @DML/aggregation.sql
+ set echo off
+ set heading off
+  
+____EOF
 

@@ -45,5 +45,12 @@ PROCEDURE ADD_SALE(
          VALUES(s_Tran_seq_no, s_Tran_Type, s_Retail_Price); 
    END  ADD_SALE; 
    
+   
+PROCEDURE DEL_SALE(s_Tran_seq_no  SALE.TXN_NUM%type) IS 
+   BEGIN 
+      DELETE FROM SALE
+      WHERE TXN_NUM = s_Tran_seq_no; 
+   END DEL_SALE; 
+   
 END FIRST_PACKAGE; 
 /
