@@ -5,7 +5,7 @@ pipeline {
 	        {
 		     steps {
     			       //input 'Do you want to continue building?'
-                                echo "Start Building"
+                                echo "Start Building "
 		           }
 	        }
 	    
